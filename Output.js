@@ -2,7 +2,7 @@
 window.alert("This is Alert From Output File");
 
 // Writing HTML Code With JS
-document.write("<h1> This is Header From JS file");
+document.write("<h1> This is Header From JS file </h1>");
 
 // Printing an Output On The Console
 console.log("Hello From Console")
