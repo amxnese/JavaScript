@@ -39,3 +39,21 @@ names.sort();
 
 // Reversing an Array
 names.reverse();
+
+// Creating a Slice From The Array
+console.log(names) // ["osama", "mohamed", "hichame", "chris", "chris", "amine"]
+console.log(names.slice(start=1, endd=4)); // ["mohamed","hichame","chris"]
+
+// Splice Function
+names.splice(0, 2, "frank" , "tommy") // Returns The Deleted Elements
+console.log(names); // ["frank","tommy","hichame","chris","chris","amine"]
+
+// Concatenating Arrays
+let arr = ["white" , "blue"];
+let arr1 = ["Fridge" , "sky"];
+let arr2 = ["cold", "high"];
+let all = arr.concat(arr1,arr2);
+console.log(all); // ["white","blue","Fridge","sky","cold","high"]
+
+// Joining Arrays
+console.log(all.join(default_seperator=",")); // white,blue,Fridge,sky,cold,high
