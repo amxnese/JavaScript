@@ -1,5 +1,5 @@
 // Sending an Alert To The User
-window.alert("This is Alert From Output File");
+// window.alert("This is Alert From Output File");
 
 // Writing HTML Code With JS
 document.write("<h1> This is Header From JS file </h1>");
