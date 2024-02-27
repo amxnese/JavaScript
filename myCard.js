@@ -1,4 +1,4 @@
-let Title = "Amine" , pargrapgh = "I Hate JavaScript" , date = "06/04";
+let Title = "Amine" , pargrapgh = "Roses Are Red Violets Are Blue" , date = "06/04";
 
 let card = `
     <div class="card">
