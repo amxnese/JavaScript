@@ -8,4 +8,4 @@ let card = `
     </div>
 `;
 
-document.write(card.repeat(4))
+document.write(card.repeat(2))
