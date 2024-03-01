@@ -13,6 +13,7 @@ console.log(myQueryElement);
 console.log(myQueriesElement);
 myQueriesElement[0].innerHTML = "Hello From DOM.js File";
 
+// Getting and Setting Attributes Indirectly
 console.log(document.title);
 console.log(document.body);
 console.log(document.forms);
@@ -29,3 +30,24 @@ myImg.title = "code";
 myImg.id = "pic";
 myImg.className = "img";
 console.log(myImg);
+
+// Getting and Setting Attributes Using Methods
+let myLink = document.querySelector(".link");
+myLink.setAttribute("class", "myLink");
+myLink.setAttribute("href", "https://www.google.com");
+console.log(myLink.getAttribute("class"));
+console.log(myLink.getAttribute("href"));
+
+// Getting The Attributes of an Element
+element = document.getElementsByTagName("img")[0];
+console.log(element.attributes);
+
+// Checking if an Element Has a Specific Attribute
+console.log(element.hasAttribute("src")); // true
+
+// Checking if an Element Has Attributes
+console.log(element.hasAttributes()); // true
+
+// Removing an Attribute
+element.removeAttribute("alt");
+console.log(element.hasAttribute("alt")); // false
