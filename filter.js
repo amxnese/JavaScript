@@ -20,5 +20,5 @@ let nums2 = nums.filter(isEven);
 console.log(nums2); // [2,4,6,8]
 
 // Using Filter With anonymous Arrow Function
-let nums3 = nums.filter(num => !(num % 2));
+let nums3 = nums.filter((num) => !(num % 2));
 console.log(nums3);

@@ -14,7 +14,7 @@ var name = "amine"; // var is Optional
 age = 28;
 
 // The id of Any Tag Can Be Dealt With As a Variable
-console.log(hello) // <div id="hello">Hello From HTML</div>
+console.log(hello); // <div id="hello">Hello From HTML</div>
 
 // Changing The Content of a Tag Using its id
-hello.innerHTML = `Hello From innerHTML Function, ${name} Here`
+hello.innerHTML = `Hello From innerHTML Function, ${name} Here`;

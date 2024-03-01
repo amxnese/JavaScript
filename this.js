@@ -25,9 +25,9 @@ Method Calls: When a function is called as a method of an object,
 this refers to the object that owns the method.
 */
 let obj = {
-  func: function() {
+  func: function () {
     console.log(this);
-  }
+  },
 };
 obj.func(); // 'this' refers to 'obj'
 
@@ -40,14 +40,13 @@ function MyClass() {
 }
 const instance = new MyClass(); // 'this' refers to the newly created instance
 
-
 // Event Handlers: In event handler functions, this usually refers to the element that triggered the event.
-document.write(`<button onclick="console.log(this)">Click me</button>`)
+document.write(`<button onclick="console.log(this)">Click me</button>`);
 
 /* 
 Explicitly Setting this: You can explicitly set the value of this using methods like call(), apply(), or bind().
 */
-const ob = { name: 'John' };
+const ob = { name: "John" };
 function sayName() {
   console.log(this.name);
 }

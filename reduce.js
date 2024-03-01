@@ -14,9 +14,11 @@ console.log(Longest); // leonardo
 
 // Remove Odd Character
 let letters = ["A", "M", "$", "I", "$", "N"];
-let word = letters.filter(function (ele) {
-  return !ele.startsWith("$");
-}).reduce(function(acc, cur){
-  return `${acc}${cur}`;
-});
+let word = letters
+  .filter(function (ele) {
+    return !ele.startsWith("$");
+  })
+  .reduce(function (acc, cur) {
+    return `${acc}${cur}`;
+  });
 console.log(word); // AMIN

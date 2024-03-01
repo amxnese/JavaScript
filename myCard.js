@@ -1,4 +1,6 @@
-let Title = "Amine" , pargrapgh = "Roses Are Red Violets Are Blue" , date = "06/04";
+let Title = "Amine",
+  pargrapgh = "Roses Are Red Violets Are Blue",
+  date = "06/04";
 
 let card = `
     <div class="card">
@@ -8,4 +10,4 @@ let card = `
     </div>
 `;
 
-document.write(card.repeat(2))
+document.write(card);
