@@ -11,7 +11,7 @@ console.log(myTagElement);
 console.log(myClassElement);
 console.log(myQueryElement);
 console.log(myQueriesElement);
-myQueriesElement[0].innerHTML = "Hello From DOM.js File";
+myQueriesElement[0].innerHTML = "Hello From getAndSet.js File";
 
 // Getting and Setting Attributes Indirectly
 console.log(document.title);
@@ -32,7 +32,7 @@ myImg.className = "img";
 console.log(myImg);
 
 // Getting and Setting Attributes Using Methods
-let myLink = document.querySelector(".link");
+let myLink = document.querySelector(".google");
 myLink.setAttribute("class", "myLink");
 myLink.setAttribute("href", "https://www.google.com");
 console.log(myLink.getAttribute("class"));
