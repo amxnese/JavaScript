@@ -1,5 +1,5 @@
 // Getting The Original Header
-original = document.querySelector("h4");
+original = document.querySelector("h2");
 
 // Adding an EventListener to The Original Header
 original.addEventListener("click", function () {
@@ -7,6 +7,8 @@ original.addEventListener("click", function () {
   let copy = original.cloneNode(true);
   // Setting a ClassName To The Copy Element
   copy.className = "clone";
+  // Changing The copied Clone's Text
+  copy.textContent = "Cloned"
   // Appending The Copy Element To The Body
   document.body.appendChild(copy);
 });
@@ -24,7 +26,7 @@ window.addEventListener("click",  event => {
   }
 });
 
-// Adding a Global Event Listener That Intereact To All Headers <h4>
+// Adding a Global Event Listener That Intereact To All Headers <h2>
 
 // Global Function
 function GlobalEventListener(type, selector, callback){
@@ -34,6 +36,6 @@ function GlobalEventListener(type, selector, callback){
   })
 }
 
-GlobalEventListener('click', 'h4', e => {
+GlobalEventListener('click', 'h2', () => {
     console.log("You Clicked a Header");
 })

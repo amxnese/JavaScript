@@ -16,7 +16,8 @@ function msg(name){
 }
 
 // Getting The Button That We Will Use To Stop The setTimeout Function
-button = document.querySelector("button");
+button = document.querySelectorAll("button")[1];
+console.log(button);
 button.addEventListener("click", () => {
   clearTimeout(handler); // clearTimout Takes a Handler That is Considered as The id of Each setTimeout Function
 })
@@ -28,26 +29,48 @@ clearInterval() function.  */
 // Getting The div Element
 div = document.querySelector("div");
 
-// Setting a Handler To The setInterval Function
-let handler1 = setInterval(dec, 1e3);
+// Creating a Result Div
+let result = document.createElement("div");
+result.style.cssText = "font-size:50px"
+let text = document.createTextNode("0");
+result.append(text);
+// Appending The Div To The body
+document.body.append(result)
+
+// Attaching The Start Button To The Set inerval
+let handler1;
+start = document.querySelectorAll("button")[0];
+function clickStart(){
+  // Setting a Handler To The setInterval Function
+  handler1 = setInterval(dec, 1e3)
+}
+start.addEventListener('click', clickStart)
 
 // Function To be Passed to The setInterval
 function dec(){
-  div.innerHTML -= 1;
+  div.innerHTML--;
   // Stoping The setInterval After The Div Hits 0
-  if(div.innerHTML == 0){
+  if(div.innerHTML === '0'){
     div.innerHTML = "Time Ended";
     clearInterval(handler1);
-    alert("You Lose")
+    result.innerHTML = "Better Luck Next Time";
+    start.removeEventListener('click',clickStart);
+    button.removeEventListener('click', handleClick);
   }
 }
 
 // Adding Another EventListener To The Button So it Can Stop Both The setTimeout And The setInterval at The Same Time
-let counter = 0; // Clicked Counts, clearInterval After 10 clicks
-button.addEventListener('click', () => {
-  counter ++;
-  if(counter === 10){
+// Defining The Function That we Will Pass To The eventListener
+let count = 0;
+function handleClick(){
+  count++;
+  result.innerHTML = count;
+  if(count === 10){
     clearInterval(handler1);
-    alert("You Win")
+    result.innerHTML = "You Win";
+    button.removeEventListener('click', handleClick);
+    start.removeEventListener('click',clickStart);
   }
-})
+}
+let counter = 0; // Clicked Counts, clearInterval After 10 clicks
+button.addEventListener('click', handleClick);
