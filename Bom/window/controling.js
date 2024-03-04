@@ -8,7 +8,7 @@ window.print();
 window.focus("https:google.com");
 
 // Scrolling The Window To a Specific Coordinates
-window.scrollTo(30,40);
+window.scrollTo(x=30,y=40);
 // Or
 window.scrollTo({
   left:30,
@@ -18,3 +18,9 @@ window.scrollTo({
 
 // Scrolling By a Specific Coordiantes
 window.scrollBy(30,40);
+
+// Getting The X Coordinates
+console.log(window.scrollX)
+
+// Getting The Y Coordinates
+console.log(window.scrollY)
