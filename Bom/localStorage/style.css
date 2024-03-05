@@ -1,0 +1,34 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: relative;
+  left: 392px;
+}
+
+li {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px; /* space between items */
+  cursor: pointer;
+}
+
+ul li:nth-child(1){
+  background-color: red;
+}
+ul li:nth-child(2){
+  background-color: greenyellow;
+}
+ul li:nth-child(3){
+  background-color: blue;
+}
+
+.exp {
+  width: 330px;
+  height: 200px; 
+  background-color: grey;
+  margin-top: 20px; 
+  position: fixed;
+  left: 400px;
+}
