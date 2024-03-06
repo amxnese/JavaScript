@@ -25,6 +25,7 @@
 }
 .tasks{
   background-color: rgb(219, 210, 210);
+  border-radius: 5px;
   width: 370px;
   height: 70px;
   left: 540px;
