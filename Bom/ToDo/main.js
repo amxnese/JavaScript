@@ -8,6 +8,17 @@ let tasks = document.querySelector(".tasks");
 // Setting a Counter That Counts The Tasks We Have So When We Create or Remove a Task The Tasks div will be Modified
 let counter = 0;
 
+// Delaring The Remove Button Outside of The Function Scope So We Can Access it Later
+let removeButton;
+
+// Declaring a Global Event Listener
+function GlobalEventListener(type, selector, callback) {
+  document.addEventListener(type, (e) => {
+    // Checking if The Clicked element Matches The Selector
+    if (e.target.matches(selector)) callback();
+  });
+}
+
 // Function That Creates Div Tasks
 function createTask(text) {
   // Creating a Task Div
@@ -26,9 +37,7 @@ function createTask(text) {
     left: 578px;\
     font-weight: bold;\
     border-radius: 6px;\
-    top: " +
-    top +
-    ";\
+    top: " + top +";\
     position: fixed;\
     display: flex;\
     justify-content: center;\
@@ -36,7 +45,7 @@ function createTask(text) {
     align-items: center";
 
   // Creating The Remove Button
-  let removeButton = document.createElement("button");
+  removeButton = document.createElement("button");
   removeButton.innerHTML = "X";
   removeButton.style.cssText =
     "font-size: 20px;\
@@ -52,7 +61,9 @@ function createTask(text) {
   // Appending The Remove Button To The Task Div
   div.appendChild(removeButton);
   // Expanding The Div That Contains All Tasks Each Time We Add a New Task
-  tasks.style.height = parseInt(tasks.offsetHeight) + counter * 68 + "px";
+  if (counter) {
+    tasks.style.height = parseInt(tasks.offsetHeight) + 69 + "px";
+  }
   // Incrementing our Counter To Stay in Track
   counter++;
   return div;
@@ -71,3 +82,28 @@ add.addEventListener("click", () => {
   // Appending The Task To The Body
   document.body.appendChild(task);
 });
+
+// Declaring a Global Event Listener Function
+function GlobalEventListener(type, selector, callback) {
+  document.addEventListener(type, (e) => {
+    // Checking if The Clicked element Matches The Selector
+    if (e.target.matches(selector)) callback(e);
+  });
+}
+
+// Adding an Event Listener To The Remove Button Using a Global Event Listener
+GlobalEventListener('click', 'button', (e) => {
+  counter--;
+  // Checking if Theres More Than One Task
+  if (counter) {
+    // Shrinking The Main Task
+    tasks.style.height = parseInt(tasks.offsetHeight) - 69 + "px";
+    // Modifying The Position of The Tasks That Were Below The Task That Has Been Deleted
+    let deleted = e.target.parentNode;
+    while(deleted.nextElementSibling){
+      deleted.nextElementSibling.style.top = (parseInt(deleted.nextElementSibling.offsetTop)- 70) + 'px';
+      deleted = deleted.nextElementSibling
+    }
+  }
+  e.target.parentNode.remove()
+})
