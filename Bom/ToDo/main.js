@@ -37,7 +37,9 @@ function createTask(text) {
     left: 578px;\
     font-weight: bold;\
     border-radius: 6px;\
-    top: " + top +";\
+    top: " +
+    top +
+    ";\
     position: fixed;\
     display: flex;\
     justify-content: center;\
@@ -69,12 +71,20 @@ function createTask(text) {
   return div;
 }
 
-// Adding an Event Listener To add Button
 add.addEventListener("click", () => {
-  // Checking if The input is Valid
-  if (input.value === "") {
+  // Handling The Case Where The input is Not Valid
+  function isValid(variable) {
+    if (!(variable) || variable === " ") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  if (!isValid(input.value)) {
     return;
   }
+
+  // Handling The Case Where The Input is Valid
   // Creating a Task Div
   let task = createTask(input.value);
   // Clearing The Input After Adding The Task
@@ -82,6 +92,14 @@ add.addEventListener("click", () => {
   // Appending The Task To The Body
   document.body.appendChild(task);
 });
+
+// Adding an Event Listener To add Button
+input.addEventListener('keypress' ,(e) => {
+  if(e.keyCode === 13){
+    console.log("l;af")
+    add.click();
+  }
+})
 
 // Declaring a Global Event Listener Function
 function GlobalEventListener(type, selector, callback) {
@@ -92,7 +110,7 @@ function GlobalEventListener(type, selector, callback) {
 }
 
 // Adding an Event Listener To The Remove Button Using a Global Event Listener
-GlobalEventListener('click', 'button', (e) => {
+GlobalEventListener("click", "button", (e) => {
   counter--;
   // Checking if Theres More Than One Task
   if (counter) {
@@ -100,10 +118,11 @@ GlobalEventListener('click', 'button', (e) => {
     tasks.style.height = parseInt(tasks.offsetHeight) - 69 + "px";
     // Modifying The Position of The Tasks That Were Below The Task That Has Been Deleted
     let deleted = e.target.parentNode;
-    while(deleted.nextElementSibling){
-      deleted.nextElementSibling.style.top = (parseInt(deleted.nextElementSibling.offsetTop)- 70) + 'px';
-      deleted = deleted.nextElementSibling
+    while (deleted.nextElementSibling) {
+      deleted.nextElementSibling.style.top =
+        parseInt(deleted.nextElementSibling.offsetTop) - 70 + "px";
+      deleted = deleted.nextElementSibling;
     }
   }
-  e.target.parentNode.remove()
-})
+  e.target.parentNode.remove();
+});
