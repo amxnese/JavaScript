@@ -1,4 +1,4 @@
-let names = ["amine", "osama", "mohamed", "hichame"]
+let names = ["amine", "osama", "mohamed", "hichame"];
 
 // Adding Elements To The Beginning of The Array
 names.unshift("james", "david");
@@ -13,17 +13,17 @@ let firstName = names.shift();
 let lastName = names.pop();
 
 console.log(names.length); // 4 + 2 + 2 - 1 - 1 = 6
-console.log(firstName);    // james
-console.log(lastName);     // elon
+console.log(firstName); // james
+console.log(lastName); // elon
 
 // Changing The Value of The First Element
 names[0] = "chris";
 
 // Changing The Value of The Last Element
-names[names.length-1] = "chris";
+names[names.length - 1] = "chris";
 
 // When Searching For The index of an Element That is Not Available in The Array The Searching Function Will Return -1
-console.log(names.indexOf("ivan")) // -1
+console.log(names.indexOf("ivan")); // -1
 
 // Getting The Index of a Specific Element Starting The Search From The Begining
 console.log(`index of 'chris' is ${names.indexOf("chris")}`); // 0
@@ -41,19 +41,19 @@ names.sort();
 names.reverse();
 
 // Creating a Slice From The Array
-console.log(names) // ["osama", "mohamed", "hichame", "chris", "chris", "amine"]
-console.log(names.slice(start=1, endd=4)); // ["mohamed","hichame","chris"]
+console.log(names); // ["osama", "mohamed", "hichame", "chris", "chris", "amine"]
+console.log(names.slice((start = 1), (endd = 4))); // ["mohamed","hichame","chris"]
 
 // Splice Function
-names.splice(0, 2, "frank" , "tommy") // Returns The Deleted Elements
+names.splice(0, 2, "frank", "tommy"); // Returns The Deleted Elements
 console.log(names); // ["frank","tommy","hichame","chris","chris","amine"]
 
 // Concatenating Arrays
-let arr = ["white" , "blue"];
-let arr1 = ["Fridge" , "sky"];
+let arr = ["white", "blue"];
+let arr1 = ["Fridge", "sky"];
 let arr2 = ["cold", "high"];
-let all = arr.concat(arr1,arr2);
+let all = arr.concat(arr1, arr2);
 console.log(all); // ["white","blue","Fridge","sky","cold","high"]
 
 // Joining Arrays
-console.log(all.join(default_seperator=",")); // white,blue,Fridge,sky,cold,high
+console.log(all.join((default_seperator = ","))); // white,blue,Fridge,sky,cold,high
