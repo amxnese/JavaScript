@@ -1,17 +1,18 @@
-.form{
+.form {
   width: 410px;
   height: 84px;
   background-color: rgb(219, 210, 210);
   position: fixed;
-  left: 520px;
+  left: 519px;
+  border-radius: 5px;
 }
-.input{
+.input {
   width: 250px;
   height: 45px;
   margin: 15px;
   font-size: 20px;
 }
-.add{
+.add {
   font-size: 15px;
   font-weight: bold;
   width: 100px;
@@ -23,7 +24,7 @@
   bottom: 1px;
   position: relative;
 }
-.tasks{
+.tasks {
   background-color: rgb(219, 210, 210);
   border-radius: 5px;
   width: 370px;
@@ -32,4 +33,3 @@
   position: fixed;
   top: 130px;
 }
-

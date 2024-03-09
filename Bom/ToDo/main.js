@@ -1,6 +1,4 @@
 // Getting All Elements
-let container = document.querySelector(".container");
-let form = document.querySelector(".form");
 let input = document.querySelector(".input");
 let add = document.querySelector(".add");
 let tasks = document.querySelector(".tasks");
@@ -8,6 +6,7 @@ let tasks = document.querySelector(".tasks");
 // Setting a Counter That Counts The Tasks We Have So When We Create or Remove a Task The Tasks div will be Modified
 let counter = 0;
 
+// The Counter To Use For Setting The Top of Tasks Since The Counter Can't be Used For This
 let cnt = 0;
 
 // Declaring an id Variable So Each Task Takes a Unique id
@@ -73,16 +72,6 @@ function createTask(text) {
   // Setting an id To The Remove Button
   removeButton.id = id;
 
-  // Updating The id of The Tasks So it matches The New Button id
-  // Retrieve the value associated with the existing key
-  // let value = localStorage.getItem(id);
-
-  // // Remove the existing key-value pair
-  // localStorage.removeItem('existingKey');
-
-  // // Set a new key-value pair
-  // localStorage.setItem('newKey', value);
-
   // Appending The Remove Button To The Task Div
   div.appendChild(removeButton);
 
@@ -114,7 +103,7 @@ add.addEventListener("click", () => {
   localStorage.setItem("counter", counter);
 
   // Adding The Task Text To The local Storage
-  localStorage.setItem(`${id++}`, input.value);
+  localStorage.setItem(id++, input.value);
 
   // Storing The id on Local Storage
   localStorage.setItem("id", id);
@@ -184,27 +173,36 @@ if (localStorage.length > 1) {
   id = localStorage.getItem("id");
   counter = localStorage.getItem("counter");
 
+  // The Next 3 for loops Are only Made To Ensure That The Task And The Remove Button Has The Same id
+
   // Storing Old Tasks To Delete Them Later and Set a New Id To Them
-  let oldTasks = [];
+  let oldTasks = {};
   for (let n = 0; n < localStorage.length; n++) {
     if (!isNaN(localStorage.key(n))) {
-      oldTasks.push(localStorage.getItem(localStorage.key(n)));
+      oldTasks[localStorage.key(n)] = localStorage.getItem(localStorage.key(n));
     }
   }
 
+  // Sorting The Tasks Based on Their Keys
+  let sortedKeys = Object.keys(oldTasks).sort();
+  let sortedTasks = {};
+  sortedKeys.forEach((key) => {
+    sortedTasks[key] = oldTasks[key];
+  });
+
   // Removing Tasks From Local Storage
-  for (let j = 0; j < localStorage.length; j++) {
+  for (let j = localStorage.length - 1; j >= 0; j--) {
     if (!isNaN(localStorage.key(j))) {
       localStorage.removeItem(localStorage.key(j));
     }
   }
 
-  // Creating Tasks Stored in The Local Storage
-  for (let i = 0; i < oldTasks.length; i++) {
-    let tsk = createTask(oldTasks[i]);
-    localStorage.setItem(id, oldTasks[i]);
-    tsk.childNodes[1].id = id;
+  // Creating Same Tasks With Updated Id's
+  for (let key in sortedTasks) {
+    let tsk = createTask(sortedTasks[key]);
+    localStorage.setItem(id, sortedTasks[key]);
+    // Giving The Remove Button The Same id
+    tsk.childNodes[1].id = id++;
     document.body.appendChild(tsk);
-    id++;
   }
 }
