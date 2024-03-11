@@ -1,0 +1,11 @@
+{
+  "name": "Harry",
+  "age": 25,
+  "isStudent": false,
+  "pets": ["dog", "cat", "turtle"],
+  "address": {
+    "city": "London",
+    "country": "UK"
+  },
+  "job": null
+}
