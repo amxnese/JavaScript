@@ -3,7 +3,7 @@ you can use Promise.all(). It takes an array of promises and returns a single pr
 when all of the input promises have resolved, or rejects if any of the input promises reject. */
 
 function asyncOperation1() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result of asyncOperation1");
     }, 2000);
@@ -11,7 +11,7 @@ function asyncOperation1() {
 }
 
 function asyncOperation2() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result of asyncOperation2");
     }, 1500);
@@ -19,14 +19,14 @@ function asyncOperation2() {
 }
 
 function asyncOperation3() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result of asyncOperation3");
     }, 1000);
   });
 }
 
-/* You want to execute all three functions concurrently and collect their results. You can use Promise.all()
+/* We want to execute all three functions concurrently and collect their results. We can use Promise.all()
 for this purpose: */
 
 const promises = [asyncOperation1(), asyncOperation2(), asyncOperation3()];

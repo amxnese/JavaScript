@@ -3,7 +3,7 @@ resolves or rejects, we can use Promise.race(). It takes an array of promises an
 that resolves or rejects as soon as one of the input promises resolves or rejects. */
 
 function asyncOperation1() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result of asyncOperation1");
     }, 2000);
@@ -11,7 +11,7 @@ function asyncOperation1() {
 }
 
 function asyncOperation2() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result of asyncOperation2");
     }, 1000);

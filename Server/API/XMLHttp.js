@@ -31,7 +31,6 @@ req.addEventListener('readystatechange', function() {
       let text = document.createTextNode(parsed[i].full_name)
       div.append(text)
       document.body.append(div);
-      console.log('hi')
     }
   }
 })
