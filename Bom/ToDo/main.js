@@ -27,6 +27,7 @@ function GlobalEventListener(type, selector, callback) {
 function createTask(text) {
   // Creating a Task Div
   let div = document.createElement("div");
+  div.className = "task";
 
   // Creating The Text To Put in Div (The input)
   let str = document.createTextNode(text);
@@ -38,38 +39,15 @@ function createTask(text) {
   let top = 136 + cnt++ * 70;
 
   // Modifying The Style of The Task Div
-  div.style.cssText =
-    "background-color: aqua;\
-    width: 295px;\
-    height: 55px;\
-    left: 578px;\
-    font-weight: bold;\
-    border-radius: 6px;\
-    top: " +
-    top +
-    ";\
-    position: fixed;\
-    display: flex;\
-    justify-content: center;\
-    font-size: 30px;\
-    align-items: center";
+  div.style.top = top;
 
   // Creating The Remove Button
   removeButton = document.createElement("button");
-  removeButton.innerHTML = "X";
-  removeButton.style.cssText =
-    "font-size: 20px;\
-    font-weight: bold;\
-    width: 40px;\
-    height: 35px;\
-    margin: 10px;\
-    cursor: pointer;\
-    border-radius: 5px;\
-    background-color: red;\
-    position: relative;\
-    ";
+  removeButton.className = "remove";
+  removeButton.innerHTML =
+    "<span class='material-symbols-outlined'>delete</span>";
 
-  // Setting an id To The Remove Button
+  // Setting an id To The Remove Button To Relate it With The Task
   removeButton.id = id;
 
   // Appending The Remove Button To The Task Div
