@@ -4,13 +4,13 @@ It provides a more powerful and flexible interface compared to older APIs like X
 fetch() returns a promise that resolves to the Response object representing the response to the request.
 */
 
-fetch("https://api.github.com/users/amxnese/repos") // Promise based
+fetch("https://api.github.com/users/amxnese/repos") // fetch Function is Promise based
   .then((response) => {
     // Checking if The Response We Got is ok
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    return response.json(); // Parse the JSON response, also promise based
+    return response.json(); // Parse the JSON response, json() Function is also Promise Based
   })
   .then((data) => {
     console.log("Data:", data);
