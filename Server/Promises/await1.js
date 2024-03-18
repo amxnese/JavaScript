@@ -6,9 +6,10 @@ const myPromise = new Promise((resolve) => {
 
 async function read() {
   console.log("Before Promise");
-  console.log(await myPromise); 
+  console.log(await myPromise); // Waits for the promise to resolve
   console.log("After Promise"); 
 }
 read();
 
-// Notice That the await did the work of then() also
+// Note:
+//    await myPromise === myPromise.then((response) => {response})
