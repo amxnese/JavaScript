@@ -142,6 +142,8 @@ GlobalEventListener("click", "button", (e) => {
   cnt--;
 });
 
+
+
 // Checking if There are Already Some Tasks in Local Storage
 if (localStorage.length > 1) {
   // Setting The Height of Tasks Div
