@@ -1,0 +1,90 @@
+/* styles.css */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.testimonial-slider {
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #555;
+  margin: 20px 0;
+}
+
+.slide h3 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.navigation {
+  position: absolute;
+  top: 50%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.navigation button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.navigation button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.indicators {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
